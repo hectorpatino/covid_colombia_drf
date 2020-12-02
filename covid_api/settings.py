@@ -128,3 +128,4 @@ AUTH_USER_MODEL = 'authentication.User'
 
 if os.environ.get('DJANGO_PROD_ENV', False):
     from .settings_local import *
+django_heroku.settings(locals())
