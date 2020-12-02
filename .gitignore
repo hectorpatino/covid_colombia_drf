@@ -21,7 +21,7 @@
 .idea/**/dynamic.xml
 .idea/**/uiDesigner.xml
 .idea/**/dbnavigator.xml
-
+covid_api/settings_local.py
 # Gradle
 .idea/**/gradle.xml
 .idea/**/libraries
