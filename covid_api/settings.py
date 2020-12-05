@@ -25,7 +25,6 @@ SECRET_KEY = os.environ.get('SECRET_KEY', '')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.environ.get('DEBUG', True)
-
 ALLOWED_HOSTS = []
 
 
@@ -79,9 +78,9 @@ WSGI_APPLICATION = 'covid_api.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': os.environ.get('DB_NAME',''),
-        'USER': os.environ.get('DB_USER',''),
-        'PASSWORD': os.environ.get('DB_PASSWORD',''),
+        'NAME': os.environ.get('DB_NAME', ''),
+        'USER': os.environ.get('DB_USER', ''),
+        'PASSWORD': os.environ.get('DB_PASSWORD', ''),
         'HOST': '127.0.0.1',
         'PORT': '5433',
     }
@@ -127,5 +126,5 @@ STATIC_URL = '/static/'
 AUTH_USER_MODEL = 'authentication.User'
 
 if os.environ.get('DJANGO_PROD_ENV', False):
-    from .settings_local import *
+    from .settings_heroku import *
 django_heroku.settings(locals())
