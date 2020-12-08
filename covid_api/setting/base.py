@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'authentication.apps.AuthenticationConfig',
+    'covid_co_api.apps.CovidCoApiConfig',
 ]
 
 MIDDLEWARE = [
