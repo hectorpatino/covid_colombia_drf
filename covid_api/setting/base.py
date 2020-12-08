@@ -36,6 +36,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'rest_framework',
     'authentication.apps.AuthenticationConfig',
     'covid_co_api.apps.CovidCoApiConfig',
     'django_extensions',
