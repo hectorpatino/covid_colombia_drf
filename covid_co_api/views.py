@@ -7,6 +7,7 @@ from django.http import Http404
 from rest_framework.permissions import IsAuthenticatedOrReadOnly
 from rest_framework.reverse import reverse
 from rest_framework import status, generics
+from covid_co_api.custompagination import LimitOffsetPaginationWithUpperBound
 from covid_co_api.models import Possitive, Department, City
 from rest_framework.response import Response
 from covid_co_api.serializers import (
@@ -23,7 +24,6 @@ class PossiviteCasesList(generics.ListCreateAPIView):
     permission_classes = (
         IsAuthenticatedOrReadOnly,
     )
-
     filter_fields = (
         'city',
         'gender',
@@ -36,6 +36,7 @@ class PossiviteCasesList(generics.ListCreateAPIView):
     ordering = (
         'id',
     )
+    pagination_class = LimitOffsetPaginationWithUpperBound
 
 
 class PossitiveCaseDetail(generics.RetrieveAPIView):

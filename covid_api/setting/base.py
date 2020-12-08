@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'authentication.apps.AuthenticationConfig',
     'covid_co_api.apps.CovidCoApiConfig',
     'django_extensions',
+    'django_filters',
 ]
 
 MIDDLEWARE = [
@@ -121,3 +122,16 @@ PASSWORD_HASHERS = [
 STATIC_URL = '/static/'
 AUTH_USER_MODEL = 'authentication.User'
 
+REST_FRAMEWORK = {
+    # 'DEFAULT_PAGINATION_CLASS': 'covid_co_api.custompagination.LimitOffsetPaginationWithUpperBound',
+    # 'PAGE_SIZE': 50,
+    'DEFAULT_FILTER_BACKENDS': (
+        'django_filters.rest_framework.DjangoFilterBackend',
+        'rest_framework.filters.OrderingFilter',
+        'rest_framework.filters.SearchFilter',
+    ),
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework.authentication.BasicAuthentication',
+        'rest_framework.authentication.SessionAuthentication',
+    ),
+}

@@ -4,6 +4,7 @@ cffi==1.14.4
 dj-database-url==0.5.0
 Django==3.1.4
 django-extensions==3.1.0
+django-filter==2.4.0
 django-heroku==0.3.1
 django-rest-framework==0.1.0
 djangorestframework==3.12.2
