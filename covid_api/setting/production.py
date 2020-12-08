@@ -3,8 +3,6 @@ import django_heroku
 
 from .base import *
 
-BASE_DIR = BASE_DIR
-INSTALLED_APPS = INSTALLED_APPS
 DEBUG = False
 ADMINS = (
     ('Hector patiño', 'hectorpatino24@gmail.com'),
