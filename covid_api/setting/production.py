@@ -1,12 +1,11 @@
 import dj_database_url
 import django_heroku
-import os
-from pathlib import Path
 
 from .base import *
 
+BASE_DIR = BASE_DIR
+INSTALLED_APPS = INSTALLED_APPS
 DEBUG = False
-ALLOWED_HOSTS = []
 ADMINS = (
     ('Hector patiño', 'hectorpatino24@gmail.com'),
 )
