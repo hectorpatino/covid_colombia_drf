@@ -33,8 +33,8 @@ class PossiviteCasesList(generics.ListCreateAPIView):
     search_field = (
         'city',
     )
-    ordering = (
-        'id',
+    ordering_fields = (
+        'age',
     )
     pagination_class = LimitOffsetPaginationWithUpperBound
 
@@ -78,7 +78,7 @@ class CityCaseList(generics.ListAPIView):
         'cod_dane',
         'department',
     )
-    ordering = (
+    ordering_fields = (
         'cod_dane',
     )
 
