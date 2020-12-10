@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'covid_co_api.apps.CovidCoApiConfig',
     'django_extensions',
     'django_filters',
+    'drf_yasg',
 ]
 
 MIDDLEWARE = [
