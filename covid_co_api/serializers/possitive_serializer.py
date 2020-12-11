@@ -17,7 +17,7 @@ class DepartmentForCityPossitiveSerializer(serializers.ModelSerializer):
 
 class CitySerializerForPossitive(serializers.HyperlinkedModelSerializer):
     department = DepartmentForCityPossitiveSerializer(read_only=True)
-    cod_dane = serializers.CharField(read_only=True)
+
     class Meta:
         model = City
         fields = (
@@ -29,7 +29,9 @@ class CitySerializerForPossitive(serializers.HyperlinkedModelSerializer):
 
 class PossitiveCaseSerializer(serializers.HyperlinkedModelSerializer):
     nurse = serializers.SlugRelatedField(read_only=True, slug_field='username')
-    city = CitySerializerForPossitive()
+    # TODO I want to implement this using
+    #  city = CitySerializerForPossitive() but just getting __str__ of city.
+    city = serializers.SlugRelatedField(queryset=City.objects.all(), slug_field='nombre')
     gender = serializers.SlugRelatedField(queryset=Gender.objects.all(),
                                           slug_field='type')
     case_location = serializers.SlugRelatedField(queryset=CaseLocation.objects.all(),
