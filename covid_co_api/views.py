@@ -33,6 +33,10 @@ class PossiviteCasesList(generics.ListCreateAPIView):
     pagination_class = LimitOffsetPaginationWithUpperBound
 
 
+    def perform_create(self, serializer):
+        serializer.save(nurse=self.request.user)
+
+
 class PossitiveCaseDetail(generics.RetrieveAPIView):
     name = 'possitive-detail'
     queryset = Possitive.objects.all()

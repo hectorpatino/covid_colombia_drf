@@ -17,7 +17,7 @@ class DepartmentForCityPossitiveSerializer(serializers.ModelSerializer):
 
 class CitySerializerForPossitive(serializers.HyperlinkedModelSerializer):
     department = DepartmentForCityPossitiveSerializer(read_only=True)
-
+    cod_dane = serializers.CharField(read_only=True)
     class Meta:
         model = City
         fields = (
@@ -28,8 +28,7 @@ class CitySerializerForPossitive(serializers.HyperlinkedModelSerializer):
 
 
 class PossitiveCaseSerializer(serializers.HyperlinkedModelSerializer):
-    nurse = serializers.SlugRelatedField(queryset=get_user_model().objects.all(),
-                                         slug_field='username')
+    nurse = serializers.SlugRelatedField(read_only=True, slug_field='username')
     city = CitySerializerForPossitive()
     gender = serializers.SlugRelatedField(queryset=Gender.objects.all(),
                                           slug_field='type')
