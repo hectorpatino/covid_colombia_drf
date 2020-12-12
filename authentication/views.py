@@ -1,7 +1,15 @@
 from django.http import HttpResponse
 import datetime
+from rest_framework import generics, status, views
+from rest_framework.response import Response
 
-def muestra(request):
-    now = datetime.datetime.now()
-    html = "<html><body>It is now %s.</body></html>" % now
-    return HttpResponse(html)
+from authentication.serializers import LoginSerializer
+
+
+class LoginAPIView(generics.GenericAPIView):
+    serializer_class = LoginSerializer
+
+    def post(self, request):
+        serializer = self.serializer_class(data=request.data)
+        serializer.is_valid(raise_exception=True)
+        return Response(serializer.data, status=status.HTTP_200_OK)

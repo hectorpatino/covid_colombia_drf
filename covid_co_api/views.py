@@ -1,4 +1,4 @@
-from rest_framework.permissions import IsAuthenticatedOrReadOnly
+from rest_framework.permissions import IsAuthenticatedOrReadOnly, IsAuthenticated
 from rest_framework.reverse import reverse
 from rest_framework import generics
 from covid_co_api.custompagination import LimitOffsetPaginationWithUpperBound
@@ -16,7 +16,7 @@ class PossiviteCasesList(generics.ListCreateAPIView):
     queryset = Possitive.objects.all()
     serializer_class = PossitiveCaseSerializer
     permission_classes = (
-        IsAuthenticatedOrReadOnly,
+        IsAuthenticated,
     )
     filter_fields = (
         'city',
