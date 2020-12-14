@@ -9,12 +9,14 @@ from covid_co_api.serializers import (
     DepartmentSerializer,
     CitySerializer,
 )
+from rest_framework.throttling import ScopedRateThrottle
 
 
 class PossiviteCasesList(generics.ListCreateAPIView):
     name = 'possitive-list'
     queryset = Possitive.objects.all()
     serializer_class = PossitiveCaseSerializer
+    throttle_classes = (ScopedRateThrottle,)
     permission_classes = (
         IsAuthenticatedOrReadOnly,
     )
