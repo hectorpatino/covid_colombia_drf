@@ -23,7 +23,7 @@ schema_view = get_schema_view(
    openapi.Info(
       title="Covid Colombia API",
       default_version='v0',
-      description="Test description",
+      description="API service for Colombia Covid Cases",
       terms_of_service="https://www.google.com/policies/terms/",
       contact=openapi.Contact(email="hectorpatino24@gmail.com"),
       license=openapi.License(name="BSD License"),
