@@ -16,7 +16,7 @@ class PossiviteCasesList(generics.ListCreateAPIView):
     queryset = Possitive.objects.all()
     serializer_class = PossitiveCaseSerializer
     permission_classes = (
-        IsAuthenticated,
+        IsAuthenticatedOrReadOnly,
     )
     filter_fields = (
         'city',
